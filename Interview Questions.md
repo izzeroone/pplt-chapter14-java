@@ -74,7 +74,7 @@ Chú ý kỹ tại dòng thứ 3 và 5 của output. Khối lệnh catch đượ
 
 Cơ chế gom rác tự động gọi đến phương thức finalize() ngay trước khi hoàn toàn loại bỏ đối tượng. Vì thế một lớp có thể ghi đè phương thức finalize() từ lớp Object để định nghĩa các hành động tùy chỉnh trong quá trình gom rác.
 ```java
-protected void finalizeQ throws Throwable {
+protected void finalize() throws Throwable {
  /* Close open files, release resources, etc */
 }
 ```
@@ -91,23 +91,23 @@ public abstract class Shape {
     public void printMe() {
         System.out.println("I am a shape.");
     }
-public abstract double computeAreaQ;
+public abstract double computeArea();
 }
 
 public class Circle extends Shape {
     private double rad = 5;
-    public void printMeQ {
+    public void printMe() {
     System.out.println("I am a circle.");
     }
 
-    public double computeAreaQ {
+    public double computeArea() {
     return rad * rad * 3.15;
     }
 }
 
 public class Ambiguous extends Shape {
     private double area = 10;
-    public double computeAreaQ {
+    public double computeArea() {
     return area;
     }
 }
@@ -115,14 +115,14 @@ public class Ambiguous extends Shape {
 public class IntroductionOverriding {
     public static void main(String[] args) {
         Shape[] shapes = new Shape[2];
-        Circle circle = new CircleQ;
+        Circle circle = new Circle();
         Ambiguous ambiguous = new Ambiguous();
 
         shapes[0] = circle;
         shapes[l] = ambiguous;
 
         for (Shape s : shapes) {
-            s.printMeQ;
+            s.printMe();
             System.out.println(s.computeArea());
         }
     }
@@ -159,8 +159,8 @@ _LinkedList_: LinkedList là một lớp có sẵn trong Java. Mặc dù nó hi�
 LinkedList<String> myLinkedList = new LinkedList<String>();
 myLinkedList.add("two");
 myLinkedList.addFirst("one");
-Iterator<String> iter = myLinkedList.iteratorQ;
-while (iter.hasNextQ) {
+Iterator<String> iter = myLinkedList.iterator();
+while (iter.hasNext()) {
     System.out.printIn(iter.next());
 }
 ```
