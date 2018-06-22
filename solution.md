@@ -10,7 +10,8 @@ Mục lục
         - [**14.3** *Phân biệt các từ khóa final, finally, finalize ?*](#143-phan-bit-cac-t-khoa-final--finally--finalize)
         - [**14.4** *So sánh sự khác biệt giữa templates trong C++ và generics trong Java ?*](#144-so-sanh-s-khac-bit-gia-templates-trong-c-va-generics-trong-java)
         - [**14.5** *Giải thích object reflection trong Java là gì và tại sao nó lại hữu ích ?*](#145-gii-thich-object-reflection-trong-java-la-gi-va-ti-sao-no-li-hu-ich)
-        - [**14.6** *Cài đặt lớp CircularArray hỗ trợ cấu trúc dữ liệu giống mãng mà có thể xoay một cách hữu hiệu. Class này nên là kiểu generic, và hỗ trợ con trỏ duyệt bằng cú pháp `(Obj o : circularArray)` ?*](#146-cai-t-lp-circulararray-h-tr-cu-truc-d-liu-ging-mang-ma-co-th-xoay-mt-cach-hu-hiu-class-nay-nen-la-kiu-generic--va-h-tr-con-tr-duyt-bng-cu-phap-obj-o---circulararray)
+        - [**14.6** *Cài đặt lớp CircularArray hỗ trợ cấu trúc dữ liệu giống mảng mà có thể xoay một cách hữu hiệu. Class này nên là kiểu generic, và hỗ trợ con trỏ duyệt bằng cú pháp `(Obj o : circularArray)` ?*](#146-cai-t-lp-circulararray-h-tr-cu-truc-d-liu-ging-mng-ma-co-th-xoay-mt-cach-hu-hiu-class-nay-nen-la-kiu-generic--va-h-tr-con-tr-duyt-bng-cu-phap-obj-o---circulararray)
+
 
 Câu hỏi và giải pháp
 ---
@@ -54,7 +55,7 @@ Hàm finallize() được gọi bởi garbage collector khi xác định đượ
 
 **Giải pháp**
 
-Nhiều lập trình viên cho rằng khái niệm của templates và generics là giống nhau bởi vì chúng cho phép thực hiện một số việc tương tự giống nhau với List<String>. Nhưng, cách mà mỗi ngôn ngữ thực hiện và tại sao lại thực hiện như vậy có sự khác biệt tương đối lớn.
+Nhiều lập trình viên cho rằng khái niệm của templates và generics là giống nhau bởi vì chúng cho phép thực hiện một số việc tương tự giống nhau với `List<String>`. Nhưng, cách mà mỗi ngôn ngữ thực hiện và tại sao lại thực hiện như vậy có sự khác biệt tương đối lớn.
 
 Cách cài đặt của Java generics dựa trên ý tưởng "type erasure" (xóa kiểu dữ liệu). Kỹ thuật này loại bỏ kiểu dữ liệu khi source code được chuyển sang byte code máy ảo Java.
 
@@ -135,7 +136,7 @@ Object[] doubleArgs = new Object[] { 4.2, 3.9 };
 Class rectangleDefinition = Class.forName("MyProj.Rectangle");
 
 /* Equivalent: Rectangle rectangle = newRectangle(4.2, 3.9); */
-Class[] doubleArgsClass = new Classf] {double.class, double.class};
+Class[] doubleArgsClass = new Class[] {double.class, double.class};
 Constructor doubleArgsConstructor =
 rectangleDefinition.getConstructor(doubleArgsClass);
 Rectangle rectangle =
@@ -151,7 +152,7 @@ Rectangle rectangle = new Rectangle(4.2, 3.9);
 Double area = rectangle.area();
 ```
 
-**Tại sao object reflection lại hữu ích**
+**Tại sao object reflection lại hữu ích**\
 Ví dụ trên có vẻ không hữu dụng cho lắm nhưng reflection có thể rất hữu ích cho một số ví dụ cụ thể.
 
 Object reflection hữu ích vì ba lí do chính sau:
@@ -159,7 +160,7 @@ Object reflection hữu ích vì ba lí do chính sau:
 2. Nó giúp ích cho việc debug va test phần mềm, vì ta có thể truy cập thực tiếp vào càm hàm, constructor và trường dữ liệu.
 3. Ta có thể gọi hàm bởi tên trong khi ta không biết gì về hàm. Ví dụ, ta có thể cho người dùng nhập vào tên class, tham số cho constructor và tên hàm. Ta có thể dùng thông tin này để tạo một object và gọi hàm. Làm việc tương tự mà không sử dụng reflection sẽ yêu cầu sử dụng một đống câu lệnh if (nếu có thể)
 
-### **14.6** *Cài đặt lớp CircularArray hỗ trợ cấu trúc dữ liệu giống mãng mà có thể xoay một cách hữu hiệu. Class này nên là kiểu generic, và hỗ trợ con trỏ duyệt bằng cú pháp `(Obj o : circularArray)` ?*
+### **14.6** *Cài đặt lớp CircularArray hỗ trợ cấu trúc dữ liệu giống mảng mà có thể xoay một cách hữu hiệu. Class này nên là kiểu generic, và hỗ trợ con trỏ duyệt bằng cú pháp `(Obj o : circularArray)` ?*
 
 **Giải pháp**
 
@@ -208,7 +209,7 @@ public class CircularArray<T> {
 Có số lưu ý mà có thể dễ dàng mắt lỗi như:
 * Ta không thể tạo mảng kiểu `generic`. Thay vào đó ta chuyển kiểu dữ liệu của mảng hoặc định nghĩa `items` thuộc kiểu `List<T>`. Để đơn giản, chúng ta đã thực hiện cách ở phía sau.
 * Thao tác `%` sẽ trả về giá trị âm khi `giaTriAm % viTri`. Ví dụ, `-8 % 3 = -2` - khác biệt với cách nhà toán học định nghĩa hàm chia lấy dư. Ta phải cộng `items.length` vào chỉ số âm để có được kết quả đúng.
-* Ta cần phải chắc chắn chuyển đổi một cách nhất quán chỉ mục thô sang chỉ mục được xoay. Đối với lý do này, ta đã thực hiện hàm `convert` được sử dụng bởi các hàm khác. Ngay cả hàm `rotate` cũng sử dụng `convert`.Đây là ví dụ tốt về tái sử dụng code. 
+* Ta cần phải chắc chắn chuyển đổi một cách nhất quán chỉ mục thô sang chỉ mục được xoay. Đối với lý do này, ta đã thực hiện hàm `convert()` được sử dụng bởi các hàm khác. Ngay cả hàm `rotate()` cũng sử dụng `convert()`.Đây là ví dụ tốt về tái sử dụng code. 
 
 Ta đã cài đặt xong CircularArray, giờ là đến lúc cài đặt con trỏ duyệt.
 
@@ -226,7 +227,7 @@ Cài đặt chức năng này yêu cầu phải cài đặt interface `Iterator`
 
 Sau khi đã thực hiện những điều trên, cấu trúc `for loop` sẽ hoạt động một cách diệu kì.
 
-Trong đoạn mà dưới đây, ta đã các phần cài đặt `CircularArray` giống như phần cài đặt ở trên.
+Trong đoạn mà dưới đây, ta đã bỏ qua các phần cài đặt `CircularArray` giống như phần cài đặt ở trên.
 
 ```java
 public class CircularArray<T> implements Iterable<T>{
