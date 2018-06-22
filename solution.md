@@ -18,12 +18,12 @@ Câu hỏi và giải pháp
 
 ### **14.1** *Trong thừa kế, ý nghĩa của việc khai báo constuctor là private là gì ?*
 
-**Giải pháp**
+**Giải pháp**  
 Việc khai báo constuctor là private đảm bảo rằng không có bất kỳ ai ngoài class có thể khởi tạo trực tiếp class. Trong trường hợp này, cách duy nhất để tạo class là cung cấp hàm static public, tương tự như khi sử dụng mẫu thiết kế Factory Method.
 
 ### **14.2** *Trong Java, khối lệnh trong finally có được thực thi nếu chúng ta thêm câu lệnh return trong khối lệnh try trong cấu trúc try-catch-finally hay không ?*
 
-**Giải pháp**
+**Giải pháp**  
 Đúng. Khối lệnh sẽ được thực hiện. Khối lệnh trong *finally* vẫn sẽ được thực hiện khi khối lệnh *try* đã kết thúc hàm. Ngay cả khi chúng ta cố gắng thoát khỏi hàm trong khối lệnh *try* (bằng lệnh return, lệnh continue, lệnh break hoặc các exception), khối lệnh *finally* vẫn sẽ được thực hiện.
 
 Tuy nhiên trong một số trường hợp khối lệnh *finally* sẽ không được thực hiện như :
@@ -32,7 +32,7 @@ Tuy nhiên trong một số trường hợp khối lệnh *finally* sẽ không 
 
 ### **14.3** *Phân biệt các từ khóa final, finally, finalize ?*
 
-**Giải pháp**
+**Giải pháp**  
 Các từ khóa có vẻ giống nhau nhưng `final`, `finally` và `finallize` có các mục đích khác nhau hoàn toàn. Về cơ bản, từ khóa *final* dùng để điều khiển biến, hàm hoặc class "có thể thay đổi". Từ khóa *finally* dùng trong khối lệnh *try/catch* để đảm bảo một nhóm lệnh luôn luôn thực hiện. Phương thức `finalize()` được gọi 1 lần bởi garbage collector khi xác định không còn tham chiếu nào tới object tồn tại
 
 Chi tiết về final, finally và finally như sau.
@@ -213,7 +213,7 @@ Có số lưu ý mà có thể dễ dàng mắt lỗi như:
 
 Ta đã cài đặt xong CircularArray, giờ là đến lúc cài đặt con trỏ duyệt.
 
-**Cài đặt con trỏ duyệt**
+**Cài đặt con trỏ duyệt**  
 Phần thứ hai của câu hỏi yêu cầu cài đặt lớp CircularArray sao cho ta có thể thực hiện được như sau:
 ```java
 CircularArray<String> array = ...
