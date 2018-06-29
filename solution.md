@@ -40,7 +40,7 @@ Chi tiết về final, finally và finally như sau.
 **final**  
 * Khi thêm vào biến (primitive): Gía trị của biến không thể thay đổi.
 * Khi thêm vào biến (reference): Gía trị của biến không thể trỏ tới đối tượng khác trong heap.
-* Khi thêm vào hàm: hàm không thể bị overwrite.
+* Khi thêm vào hàm: hàm không thể bị overriding.
 * Khi thêm vào class: class không thể được kế thừa.
 
 **finally**
